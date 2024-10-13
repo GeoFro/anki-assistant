@@ -41,7 +41,7 @@ async function updateDeck(deckPath) {
     let newCardsAdded = 0;
 
     while (true) {
-      const native = await promptUser(`Enter an ${process.env.NATIVE_LANGUAGE} word or phrase (or 'q' to quit): `);
+      const native = await promptUser(`\n\nEnter an ${process.env.NATIVE_LANGUAGE} word or phrase (or 'q' to quit): `);
       
       if (native.toLowerCase() === 'q') {
         break;
