@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anki Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        h2 {
+            color: #34495e;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Anki Assistant</h1>
+    
+    <p>Anki Assistant is a Node.js application that helps you create and update Anki decks for language learning. It allows you to input words or phrases in your native language, translates them to your target language, and adds them as cards to an Anki deck.</p>
+    
+    <p>It uses Anthropic for fluent translations and Narakeet for audio generation.</p>
+    
+    <h2>Installation</h2>
+    
+    <ol>
+        <li>
+            <p>Clone this repository:</p>
+            <pre><code>git clone https://github.com/yourusername/anki-assistant.git
+cd anki-assistant</code></pre>
+        </li>
+        <li>
+            <p>Install the required dependencies:</p>
+            <pre><code>npm i</code></pre>
+        </li>
+        <li>
+            <p>Set up the environment variables:</p>
+            <pre><code>npm run setup</code></pre>
+        </li>
+        <li>
+            <p>Open the <code>.env</code> file and update the following environment variables:</p>
+            <pre><code>ANTHROPIC_API_KEY=your_anthropic_api_key
+NARAKEET_API_KEY=your_narakeet_api_key
+
+NATIVE_LANGUAGE=your_native_language # The language you speak
+TARGET_LANGUAGE=your_target_language # The language you want to learn
+
+NATIVE_LANGUAGE_VOICE=your_native_language_voice # The voice to use for the native language audio
+TARGET_LANGUAGE_VOICE=your_target_language_voice # The voice to use for the target language audio</code></pre>
+            <p>Replace the placeholder values with your actual API keys and preferences.</p>
+            <p>You will need API keys for both Anthropic and Narakeet.</p>
+            <ul>
+                <li>Link to Anthropic: <a href="https://console.anthropic.com/dashboard">https://console.anthropic.com/dashboard</a></li>
+                <li>Link to Narakeet: <a href="https://www.narakeet.com/">https://www.narakeet.com/</a></li>
+                <li>Link to Narakeet voices: <a href="https://www.narakeet.com/languages/">https://www.narakeet.com/languages/</a></li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h2>Usage</h2>
+    
+    <ol>
+        <li>
+            <p>Run the application:</p>
+            <pre><code>npm start</code></pre>
+        </li>
+        <li>
+            <p>Follow the prompts in the console:</p>
+            <ul>
+                <li>Enter a word or phrase in your native language.</li>
+                <li>The application will provide a translation.</li>
+                <li>Confirm if the translation is correct (y/n).</li>
+                <li>Repeat this process for as many words as you want to add.</li>
+                <li>Enter 'q' when you're done adding words.</li>
+            </ul>
+        </li>
+        <li>
+            <p>The application will create an Anki deck file (<code>.apkg</code>) in the project directory.</p>
+        </li>
+        <li>
+            <p>Import the generated <code>.apkg</code> file into Anki to see your new cards.</p>
+        </li>
+    </ol>
+    
+    <p>For more information and the source code, visit the <a href="https://github.com/yourusername/anki-assistant">GitHub repository</a>.</p>
+</body>
+</html>

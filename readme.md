@@ -42,7 +42,9 @@ It uses Anthropic for fluent translations and Narakeet for audio generation.
    You will need API keys for both Anthropic and Narakeet.
 
    Link to Anthropic: https://console.anthropic.com/dashboard
+
    Link to Narakeet: https://www.narakeet.com/
+
    Link to Narakeet voices: https://www.narakeet.com/languages/
 
 # Usage
