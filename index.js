@@ -16,8 +16,8 @@ async function updateDeck(deckPath) {
       if (!process.env.ANTHROPIC_API_KEY) {
       console.error('ANTHROPIC_API_KEY is not set in the environment variables.');
       return;
-    } else if (!process.env.NARAKEEP_API_KEY) {
-      console.error('NARAKEEP_API_KEY is not set in the environment variables.');
+    } else if (!process.env.NARAKEET_API_KEY) {
+      console.error('NARAKEET_API_KEY is not set in the environment variables.');
       return;
     } else if (!process.env.NATIVE_LANGUAGE) {
       console.error('NATIVE_LANGUAGE is not set in the environment variables.');
