@@ -1,0 +1,3 @@
+.env
+*.apkg
+node_modules

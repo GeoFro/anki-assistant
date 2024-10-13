@@ -1,0 +1,20 @@
+{
+  "name": "anki-assistant",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "cp .env.example .env",
+    "start": "node index.js"
+  },
+  "author": "GeoFro",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.29.0",
+    "anki-apkg-export": "^4.0.3",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "fs-extra": "^11.2.0"
+  }
+}
