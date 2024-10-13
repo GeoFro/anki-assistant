@@ -4,6 +4,10 @@ Anki Assistant is a Node.js application that helps you create and update Anki de
 
 It uses Anthropic for fluent translations and Narakeet for audio generation.
 
+<img width="541" alt="Demo" src="https://github.com/user-attachments/assets/0156ba34-6bbb-4f2b-a4fb-f85b00c76734">
+
+<img width="414" alt="Cards" src="https://github.com/user-attachments/assets/cc34f70f-4850-44eb-83cc-a9c7d26b06ac">
+
 ## Installation
 
 1. Clone this repository:
