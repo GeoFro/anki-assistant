@@ -13,7 +13,7 @@ It uses Anthropic for fluent translations and Narakeet for audio generation.
 1. Clone this repository:
 
    ```
-   git clone https://github.com/yourusername/anki-assistant.git
+   git clone https://github.com/GeoFro/anki-assistant.git
    cd anki-assistant
    ```
 
