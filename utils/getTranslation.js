@@ -11,7 +11,7 @@ async function getTranslation(nativeText) {
       max_tokens: 1000,
       messages: [{
         role: "user",
-        content: `Translate the following ${process.env.NATIVE_LANGUAGE} text to ${process.env.TARGET_LANGUAGE}. Only provide the ${process.env.TARGET_LANGUAGE} translation, nothing else: "${nativeText}"`
+        content: `Translate the following ${process.env.NATIVE_LANGUAGE} text to ${process.env.TARGET_LANGUAGE}. Words in brackets () are for context only. Only provide the ${process.env.TARGET_LANGUAGE} translation, nothing else: "${nativeText}"`
       }]
     });
 
