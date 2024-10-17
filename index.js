@@ -47,20 +47,26 @@ async function updateDeck(deckPath) {
         break;
       }
 
-      const target = await getTranslation(native, process.env.TARGET_LANGUAGE);
-      console.log(`Translation: ${target}`);
+      try {
+        const target = await getTranslation(native, process.env.TARGET_LANGUAGE);
+        console.log(`Translation: ${target}`);
 
-      const confirm = await promptUser("Is this translation correct? (y/n): ");
+        const confirm = await promptUser("Is this translation correct? (y/n): ");
 
-      if (confirm.toLowerCase() === 'y') {
-        const added = await addCard(apkg, native, target, existingWords);
-        
-        if (added) {
-          newCardsAdded++;
-          console.log(`Added: ${native} - ${target}`);
+        if (confirm.toLowerCase() === 'y') {
+          const added = await addCard(apkg, native, target, existingWords);
+
+          if (added) {
+            newCardsAdded++;
+            console.log(`Added: ${native} - ${target}`);
+          }
+        } else {
+          console.log("Card not added.");
         }
-      } else {
-        console.log("Card not added.");
+      } catch (err) {
+        console.log(err);
+        // If error, break but then process the words that were added
+        break;
       }
     }
 
