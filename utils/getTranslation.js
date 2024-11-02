@@ -15,7 +15,9 @@ async function getTranslation(nativeText) {
       }]
     });
 
-    return response.content[0].text.trim();
+    const responseText = response.content[0].text.trim().replace(/"/g, '');
+
+    return responseText;
   } catch (error) {
     console.error('Error getting translation from Anthropic:', error.message);
     throw error;
