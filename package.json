@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "setup": "cp .env.example .env",
-    "start": "node index.js"
+    "start": "node index.js",
+    "batch": "node batch.js"
   },
   "author": "GeoFro",
   "license": "MIT",

@@ -1,0 +1,6 @@
+# List your phrases below, one per line
+# Lines starting with # are ignored as comments
+
+I am a student
+He is my friend
+She drinks water

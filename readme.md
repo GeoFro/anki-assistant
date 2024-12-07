@@ -70,3 +70,31 @@ It uses Anthropic for fluent translations and Narakeet for audio generation.
 3. The application will create an Anki deck file (`.apkg`) in the project directory.
 
 4. Import the generated `.apkg` file into Anki to see your new cards.
+
+## Batch Mode
+
+In addition to the interactive mode, you can process multiple phrases at once using batch mode:
+
+1. Create a `phrases.txt` file in the project directory with one phrase per line:
+
+   ```
+   # Lines starting with # are ignored as comments
+   hello
+   goodbye
+   thank you
+   how are you
+   ```
+
+2. Run the batch processor:
+
+   ```
+   npm run batch
+   ```
+
+3. For each phrase, the application will:
+   - Show the translation
+   - Ask for confirmation
+   - Generate audio files
+   - Add the card to your deck if confirmed
+
+This is particularly useful when you have a list of phrases prepared in advance.
