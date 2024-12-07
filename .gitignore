@@ -1,3 +1,4 @@
 .env
 *.apkg
 node_modules
+phrases.txt
