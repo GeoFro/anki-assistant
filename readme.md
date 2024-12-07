@@ -75,7 +75,13 @@ It uses Anthropic for fluent translations and Narakeet for audio generation.
 
 In addition to the interactive mode, you can process multiple phrases at once using batch mode:
 
-1. Create a `phrases.txt` file in the project directory with one phrase per line:
+1. Create a `phrases.txt` file in the project directory (you can copy from `phrases.txt.example`):
+
+   ```
+   cp phrases.txt.example phrases.txt
+   ```
+
+   Then edit `phrases.txt` with your phrases, one per line:
 
    ```
    # Lines starting with # are ignored as comments
