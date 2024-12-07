@@ -81,6 +81,7 @@ TARGET_LANGUAGE_VOICE=your_target_language_voice # The voice to use for the targ
     
     <h2>Usage</h2>
     
+    <h3>Interactive Mode</h3>
     <ol>
         <li>
             <p>Run the application:</p>
@@ -103,6 +104,37 @@ TARGET_LANGUAGE_VOICE=your_target_language_voice # The voice to use for the targ
             <p>Import the generated <code>.apkg</code> file into Anki to see your new cards.</p>
         </li>
     </ol>
+    
+    <h3>Batch Mode</h3>
+    <p>In addition to the interactive mode, you can process multiple phrases at once using batch mode:</p>
+    
+    <ol>
+        <li>
+            <p>Create a <code>phrases.txt</code> file in the project directory (you can copy from <code>phrases.txt.example</code>):</p>
+            <pre><code>cp phrases.txt.example phrases.txt</code></pre>
+            <p>Then edit <code>phrases.txt</code> with your phrases, one per line:</p>
+            <pre><code># Lines starting with # are ignored as comments
+hello
+goodbye
+thank you
+how are you</code></pre>
+        </li>
+        <li>
+            <p>Run the batch processor:</p>
+            <pre><code>npm run batch</code></pre>
+        </li>
+        <li>
+            <p>For each phrase, the application will:</p>
+            <ul>
+                <li>Show the translation</li>
+                <li>Ask for confirmation</li>
+                <li>Generate audio files</li>
+                <li>Add the card to your deck if confirmed</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <p>This is particularly useful when you have a list of phrases prepared in advance.</p>
     
     <p>For more information and the source code, visit the <a href="https://github.com/GeoFro/anki-assistant">GitHub repository</a>.</p>
 </body>
