@@ -136,6 +136,49 @@ how are you</code></pre>
     
     <p>This is particularly useful when you have a list of phrases prepared in advance.</p>
     
+    <h3>Audio Tapes</h3>
+    <p>You can also create audio learning tapes that combine multiple phrases into a single MP3 file. Each phrase follows this pattern:</p>
+    <ol>
+        <li>Native language phrase</li>
+        <li>5-second pause</li>
+        <li>Target language phrase (normal speed)</li>
+        <li>3-second pause</li>
+        <li>Target language phrase (0.7x speed)</li>
+        <li>3-second pause</li>
+        <li>Target language phrase (0.85x speed)</li>
+        <li>3-second pause</li>
+        <li>Target language phrase (normal speed)</li>
+        <li>3-second pause before next phrase</li>
+    </ol>
+    
+    <p>This format is particularly useful for listening and pronunciation practice, when you may not be able to read the text.</p>
+    
+    <ol>
+        <li>
+            <p>Create an <code>audio-phrases.txt</code> file in the project directory (you can copy from <code>audio-phrases.txt.example</code>):</p>
+            <pre><code>cp audio-phrases.txt.example audio-phrases.txt</code></pre>
+            <p>Then edit <code>audio-phrases.txt</code> with your phrases, one per line:</p>
+            <pre><code>I usually eat breakfast at home
+She can speak three languages very well
+The cat likes to sleep under the table</code></pre>
+        </li>
+        <li>
+            <p>Run the audio tape creator:</p>
+            <pre><code>npm run audio</code></pre>
+        </li>
+        <li>
+            <p>The application will:</p>
+            <ul>
+                <li>Translate each phrase</li>
+                <li>Generate audio for both languages</li>
+                <li>Create slower versions for practice</li>
+                <li>Combine everything into a single MP3 file</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <p>The output will be saved as <code>[TARGET_LANGUAGE]_audio_tape.mp3</code> in your project directory.</p>
+    
     <p>For more information and the source code, visit the <a href="https://github.com/GeoFro/anki-assistant">GitHub repository</a>.</p>
 </body>
 </html>
