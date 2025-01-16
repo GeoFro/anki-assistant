@@ -34,12 +34,17 @@ async function processPhrase(native, target, workDir) {
   const nativePath = path.join(workDir, `native_${Date.now()}.mp3`);
   const targetPath = path.join(workDir, `target_${Date.now()}.mp3`);
   const targetSlowPath = path.join(workDir, `target_slow_${Date.now()}.mp3`);
+  const targetSlowerPath = path.join(
+    workDir,
+    `target_slower_${Date.now()}.mp3`
+  );
   const silencePath = path.join(workDir, `silence_${Date.now()}.mp3`);
+  const longSilencePath = path.join(workDir, `long_silence_${Date.now()}.mp3`);
 
   await fs.writeFile(nativePath, nativeAudio);
   await fs.writeFile(targetPath, targetAudio);
 
-  // Create slowed version using ffmpeg
+  // Create slower version (0.7x) using ffmpeg
   await new Promise((resolve, reject) => {
     ffmpeg()
       .input(targetPath)
@@ -50,20 +55,36 @@ async function processPhrase(native, target, workDir) {
       .run();
   });
 
-  // Create silence file (3 seconds)
+  // Create slightly slowed version (0.85x) using ffmpeg
+  await new Promise((resolve, reject) => {
+    ffmpeg()
+      .input(targetPath)
+      .audioFilters("atempo=0.85")
+      .output(targetSlowerPath)
+      .on("end", resolve)
+      .on("error", reject)
+      .run();
+  });
+
+  // Create silence files (3 and 5 seconds)
   await createSilenceFile(3, silencePath);
+  await createSilenceFile(5, longSilencePath);
 
   return {
     nativePath,
     targetPath,
     targetSlowPath,
+    targetSlowerPath,
     silencePath,
+    longSilencePath,
     cleanup: async () => {
       await Promise.all([
         fs.remove(nativePath),
         fs.remove(targetPath),
         fs.remove(targetSlowPath),
+        fs.remove(targetSlowerPath),
         fs.remove(silencePath),
+        fs.remove(longSilencePath),
       ]);
     },
   };
@@ -104,15 +125,15 @@ async function createAudioTape(phrases, outputPath) {
     for (const segment of audioSegments) {
       command
         .input(segment.nativePath)
-        .input(segment.silencePath)
+        .input(segment.longSilencePath) // 5 second pause after native
         .input(segment.targetPath)
-        .input(segment.silencePath)
-        .input(segment.targetSlowPath)
-        .input(segment.silencePath)
-        .input(segment.targetSlowPath)
-        .input(segment.silencePath)
+        .input(segment.silencePath) // 3 second pause
+        .input(segment.targetSlowPath) // 0.7x speed
+        .input(segment.silencePath) // 3 second pause
+        .input(segment.targetSlowerPath) // 0.85x speed
+        .input(segment.silencePath) // 3 second pause
         .input(segment.targetPath)
-        .input(segment.silencePath);
+        .input(segment.silencePath); // 3 second pause before next phrase
     }
 
     // Combine all segments
