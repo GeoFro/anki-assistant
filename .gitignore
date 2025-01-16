@@ -2,3 +2,6 @@
 *.apkg
 node_modules
 phrases.txt
+latvian_audio_tape.mp3
+audio-phrases.txt
+tmp

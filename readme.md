@@ -104,3 +104,48 @@ In addition to the interactive mode, you can process multiple phrases at once us
    - Add the card to your deck if confirmed
 
 This is particularly useful when you have a list of phrases prepared in advance.
+
+## Audio Tapes
+
+You can also create audio learning tapes that combine multiple phrases into a single MP3 file. Each phrase follows this pattern:
+
+1. Native language phrase
+2. 5-second pause
+3. Target language phrase (normal speed)
+4. 3-second pause
+5. Target language phrase (0.7x speed)
+6. 3-second pause
+7. Target language phrase (0.85x speed)
+8. 3-second pause
+9. Target language phrase (normal speed)
+10. 3-second pause before next phrase
+
+This format is particularly useful for listening and pronunciation practice, when you may not be able to read the text.
+
+1. Create an `audio-phrases.txt` file in the project directory (you can copy from `audio-phrases.txt.example`):
+
+   ```
+   cp audio-phrases.txt.example audio-phrases.txt
+   ```
+
+   Then edit `audio-phrases.txt` with your phrases, one per line:
+
+   ```
+   I usually eat breakfast at home
+   She can speak three languages very well
+   The cat likes to sleep under the table
+   ```
+
+2. Run the audio tape creator:
+
+   ```
+   npm run audio
+   ```
+
+3. The application will:
+   - Translate each phrase
+   - Generate audio for both languages
+   - Create slower versions for practice
+   - Combine everything into a single MP3 file
+
+The output will be saved as `[TARGET_LANGUAGE]_audio_tape.mp3` in your project directory.
