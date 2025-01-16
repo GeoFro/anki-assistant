@@ -6,16 +6,20 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "setup": "cp .env.example .env",
     "start": "node index.js",
-    "batch": "node batch.js"
+    "batch": "node batch.js",
+    "audio": "node audio.js"
   },
   "author": "GeoFro",
   "license": "MIT",
   "description": "",
   "dependencies": {
     "@anthropic-ai/sdk": "0.29.0",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@ffprobe-installer/ffprobe": "^2.1.2",
     "anki-apkg-export": "4.0.3",
     "axios": "1.7.7",
     "dotenv": "16.4.5",
+    "fluent-ffmpeg": "^2.1.3",
     "fs-extra": "11.2.0"
   }
 }
