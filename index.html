@@ -157,10 +157,22 @@ how are you</code></pre>
         <li>
             <p>Create an <code>audio-phrases.txt</code> file in the project directory (you can copy from <code>audio-phrases.txt.example</code>):</p>
             <pre><code>cp audio-phrases.txt.example audio-phrases.txt</code></pre>
-            <p>Then edit <code>audio-phrases.txt</code> with your phrases, one per line:</p>
-            <pre><code>I usually eat breakfast at home
+            <p>Then edit <code>audio-phrases.txt</code> with your phrases. You can either:</p>
+            <ol>
+                <li>
+                    <p>Add just the native language phrase:</p>
+                    <pre><code>I usually eat breakfast at home
 She can speak three languages very well
 The cat likes to sleep under the table</code></pre>
+                </li>
+                <li>
+                    <p>Or include both native phrase and translation, separated by <code>---</code>:</p>
+                    <pre><code>I usually eat breakfast at home --- Es parasti ēdu brokastis mājās
+She can speak three languages very well --- Viņa var ļoti labi runāt trīs valodās
+The cat likes to sleep under the table --- Kaķim patīk gulēt zem galda</code></pre>
+                </li>
+            </ol>
+            <p>If you provide translations, they will be used directly. Otherwise, the application will generate translations automatically.</p>
         </li>
         <li>
             <p>Run the audio tape creator:</p>

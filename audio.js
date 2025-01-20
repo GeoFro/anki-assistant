@@ -98,14 +98,18 @@ async function createAudioTape(phrases, outputPath) {
     console.log("Processing phrases...");
     const audioSegments = [];
 
-    for (const native of phrases) {
+    for (const { native, target: existingTranslation } of phrases) {
       try {
         console.log(`Processing: ${native}`);
-        const target = await getTranslation(
-          native,
-          process.env.TARGET_LANGUAGE
-        );
-        console.log(`Translation: ${target}`);
+        const target =
+          existingTranslation ||
+          (await getTranslation(native, process.env.TARGET_LANGUAGE));
+
+        if (existingTranslation) {
+          console.log(`Using existing translation: ${target}`);
+        } else {
+          console.log(`Generated translation: ${target}`);
+        }
 
         const segments = await processPhrase(native, target, workDir);
         audioSegments.push(segments);
@@ -162,7 +166,14 @@ try {
     .readFileSync("audio-phrases.txt", "utf-8")
     .split("\n")
     .map((line) => line.trim())
-    .filter((line) => line && !line.startsWith("#"));
+    .filter((line) => line && !line.startsWith("#"))
+    .map((line) => {
+      const parts = line.split("---").map((part) => part.trim());
+      return {
+        native: parts[0],
+        target: parts[1] || null, // Will be null if no translation is provided
+      };
+    });
 
   if (phrases.length === 0) {
     console.log("No phrases found in audio-phrases.txt");
