@@ -150,5 +150,13 @@ This format is particularly useful for listening and pronunciation practice, whe
 2. Run the audio tape creator:
 
    ```
-
+   npm run audio
    ```
+
+3. The application will:
+   - Translate each phrase
+   - Generate audio for both languages
+   - Create slower versions for practice
+   - Combine everything into a single MP3 file
+
+The output will be saved as `[TARGET_LANGUAGE]_audio_tape.mp3` in your project directory.
