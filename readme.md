@@ -128,24 +128,27 @@ This format is particularly useful for listening and pronunciation practice, whe
    cp audio-phrases.txt.example audio-phrases.txt
    ```
 
-   Then edit `audio-phrases.txt` with your phrases, one per line:
+   Then edit `audio-phrases.txt` with your phrases, one per line. You can either:
 
-   ```
-   I usually eat breakfast at home
-   She can speak three languages very well
-   The cat likes to sleep under the table
-   ```
+   1. Add just the native language phrase:
+
+      ```
+      I usually eat breakfast at home
+      She can speak three languages very well
+      The cat likes to sleep under the table
+      ```
+
+   2. Or include both native phrase and translation, separated by `---`:
+      ```
+      I usually eat breakfast at home --- Es parasti ēdu brokastis mājās
+      She can speak three languages very well --- Viņa var ļoti labi runāt trīs valodās
+      The cat likes to sleep under the table --- Kaķim patīk gulēt zem galda
+      ```
+
+   If you provide translations, they will be used directly. Otherwise, the application will generate translations automatically.
 
 2. Run the audio tape creator:
 
    ```
-   npm run audio
+
    ```
-
-3. The application will:
-   - Translate each phrase
-   - Generate audio for both languages
-   - Create slower versions for practice
-   - Combine everything into a single MP3 file
-
-The output will be saved as `[TARGET_LANGUAGE]_audio_tape.mp3` in your project directory.
